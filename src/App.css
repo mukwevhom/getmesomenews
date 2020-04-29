@@ -1,3 +1,43 @@
+nav .logo h2 {
+    margin: 0;
+    font-family: serif;
+}
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    flex-grow: 1;
+    justify-content: flex-end;
+    display: flex;
+}
+nav ul li{
+    margin-right: 21px;
+}
+nav ul li:last-of-type{
+    margin-right: 0;
+}
+
+.searchBar {
+    background-color: #fbfcfd;
+}
+
+.searchBar form > div {
+    flex-grow: .4;
+}
+
+.searchBar form > div:first-of-type {
+    flex-grow: 1;
+}
+
+.article {
+    border:1px solid #f0f4f7;
+    border-radius: 3px;
+}
+
 .article-image img {
     object-fit: cover;
+}
+
+footer {
+    border-top: 1px solid #0000001a;
 }

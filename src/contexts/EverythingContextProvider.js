@@ -1,13 +1,12 @@
-import React from 'react'
+import React from 'react';
+import moment from 'moment';
 
 const initialState = {
     newsArticles:[],
-    country:"za",
     q:"",
-    resource:"top-headlines",
-    category:"all",
-    dateFrom:new Date('2014-08-18T21:11:54'),
-    dateTo:new Date('2014-08-18T21:11:54')
+    sortBy:"relevancy",
+    dateFrom:moment().format("YYYY-MM-DD"),
+    dateTo:moment().format("YYYY-MM-DD")
 };
 
 function reducer(state, action){
@@ -17,15 +16,9 @@ function reducer(state, action){
                 ...state,
                 newsArticles:action.newsArticles,
                 q:action.q,
-                resource:action.resource,
-                category:action.category,
-                country:action.country
-            };
-        }
-        case 'SEARCH_ARTICLES': {
-            return {
-                ...state,
-                newsArticles:action.newsArticles
+                sortBy:action.sortBy,
+                dateFrom:action.dateFrom,
+                dateTo:action.dateTo
             };
         }
         default:
@@ -33,7 +26,7 @@ function reducer(state, action){
     }
 }
 
-const GlobalContextProvider = ({children}) => {
+const EverythingContextProvider = ({children}) => {
 
     const [state, dispatch] = React.useReducer(reducer, initialState);
 
@@ -46,4 +39,4 @@ const GlobalContextProvider = ({children}) => {
 
 export const Context = React.createContext(initialState);
 
-export default GlobalContextProvider;
+export default EverythingContextProvider;
