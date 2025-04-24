@@ -3,7 +3,7 @@ import queryString from "query-string";
 import {Context} from "../contexts/TopNewsContextProvider";
 import { TextField,
     MenuItem
- } from '@material-ui/core';
+ } from '@mui/material';
 
 const apiBaseURL = "https://newsapi.org/v2/";
 

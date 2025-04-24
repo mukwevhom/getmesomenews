@@ -5,11 +5,11 @@ import DateFnsUtils from '@date-io/date-fns';
 import moment from 'moment';
 import { TextField,
     MenuItem
- } from '@material-ui/core';
- import {
-   MuiPickersUtilsProvider,
-   KeyboardDatePicker,
- } from '@material-ui/pickers';
+} from '@mui/material';
+import {
+    LocalizationProvider,
+    DatePicker,
+} from '@mui/x-date-pickers';
 
 const apiBaseURL = "https://newsapi.org/v2/";
 
@@ -183,9 +183,9 @@ function SearchBar() {
                             </MenuItem>
                         ))}
                         </TextField>
-                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <LocalizationProvider utils={DateFnsUtils}>
                         <div className="flex">
-                            <KeyboardDatePicker
+                            <DatePicker
                                 className="my-0"
                                 disableToolbar
                                 variant="inline"
@@ -199,7 +199,7 @@ function SearchBar() {
                                     'aria-label': 'change date',
                                 }}
                                 />
-                            <KeyboardDatePicker
+                            <DatePicker
                                 className="my-0"
                                 disableToolbar
                                 variant="inline"
@@ -214,7 +214,7 @@ function SearchBar() {
                                 }}
                                 />
                         </div>
-                    </MuiPickersUtilsProvider>
+                    </LocalizationProvider>
                 </form>
             </div>
         </div>
