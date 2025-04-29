@@ -29,7 +29,7 @@ const sortByOptions = [
 ];
 
 let requestParams = {
-    apiKey:import.meta.env.VITE_API_KEY,
+    apiKey:import.meta.env.VITE_NEWSAPI_KEY,
 };
 
 function sendRequest(dispatch) {
