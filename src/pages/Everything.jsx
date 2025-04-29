@@ -1,15 +1,13 @@
 import React, {useContext, useEffect} from "react";
 import queryString from "query-string";
 import {Context} from "../contexts/EverythingContextProvider";
-import DateFnsUtils from '@date-io/date-fns';
 import moment from 'moment';
 import { TextField,
     MenuItem
 } from '@mui/material';
-import {
-    LocalizationProvider,
-    DatePicker,
-} from '@mui/x-date-pickers';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 const apiBaseURL = "https://newsapi.org/v2/";
 
@@ -183,13 +181,13 @@ function SearchBar() {
                             </MenuItem>
                         ))}
                         </TextField>
-                    <LocalizationProvider utils={DateFnsUtils}>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <div className="flex">
                             <DatePicker
                                 className="my-0"
                                 disableToolbar
                                 variant="inline"
-                                format="MM/dd/yyyy"
+                                format="YYYY-MM-DD"
                                 margin="normal"
                                 id="dateFromPicker"
                                 label="Date From"
@@ -203,7 +201,7 @@ function SearchBar() {
                                 className="my-0"
                                 disableToolbar
                                 variant="inline"
-                                format="MM/dd/yyyy"
+                                format="YYYY-MM-DD"
                                 margin="normal"
                                 id="dateToPicker"
                                 label="Date To"
