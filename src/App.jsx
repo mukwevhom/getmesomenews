@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Everything from './pages/Everything';
 import TopNews from './pages/TopNews';
@@ -11,18 +11,23 @@ const App = () => {
     return (
         <Router>
             <Nav />
-            <Switch>
-                <Route exact path="/search-news">
-                    <EverythingContextProvider>
-                        <Everything />
-                    </EverythingContextProvider>
-                </Route>
-                <Route exact path="/">
-                    <TopNewsContextProvider>
-                        <TopNews />
-                    </TopNewsContextProvider>
-                </Route>
-            </Switch>
+            <Routes>
+                <Route exact path="/"
+                    element={
+                        <TopNewsContextProvider>
+                            <TopNews />
+                        </TopNewsContextProvider>
+                    }
+                />
+                <Route
+                    exact path="/search-news"
+                    element={
+                        <EverythingContextProvider>
+                            <Everything />
+                        </EverythingContextProvider>
+                    }
+                />
+            </Routes>
             <Footer />
         </Router>
     )
